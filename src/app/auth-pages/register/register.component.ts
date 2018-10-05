@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {RegisterService} from "../../services/register.service";
 import {Attendant} from "./attendant.objects";
+import {Router} from "@angular/router";
 declare const swal: any;
 @Component({
   selector: 'app-register',
@@ -13,7 +14,7 @@ declare const swal: any;
 })
 export class RegisterComponent implements OnInit {
   public new_register_attendant = new Attendant();
-  constructor(private  registerService: RegisterService) { }
+  constructor(private  registerService: RegisterService, private routeManager: Router) { }
 
   ngOnInit() {
   }
@@ -27,11 +28,22 @@ export class RegisterComponent implements OnInit {
 
   public showSwalMessage(title: String, message: String) {
     swal({
-      title: title,
-      text: message,
-      buttonsStyling: true,
-      confirmButtonClass: 'btn btn-primary'
+          title: title,
+          text: message,
+          type: 'warning',
+          confirmButtonClass: 'btn btn-primary'
+        },
+    ).then((json_data) => {
+      this.routeManager.navigate(['/admin/welcome']);
+    }, (dismiss) => {
+      if (dismiss === 'cancel') { // you might also handle 'close' or 'timer' if you used those
+      } else {
+
+        throw dismiss;
+      }
     });
+
+
   }
 
 }

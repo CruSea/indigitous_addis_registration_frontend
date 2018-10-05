@@ -18,8 +18,8 @@ export class Attendant {
     this.sex = 'M';
     this.profession = '';
     this.interest = '';
-    this.confrence_year = null;
-    this.cnfrence_place = '';
+    this.confrence_year = 2018;
+    this.cnfrence_place = 'Addis Abeba';
     this.created_at = '';
     this.updated_at = '';
   }
