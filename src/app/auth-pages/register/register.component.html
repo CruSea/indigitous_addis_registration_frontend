@@ -1,0 +1,58 @@
+h<div class="middle-box text-center loginscreen  animated fadeInDown">
+  <div>
+    <div>
+      <!--<h2 class="logo-name">AHD</h2>-->
+      <img alt="image" class="img-rounded col-sm-12" src="assets/images/hack_addis.png">
+    </div>
+    <h3 style="color:black;"><i>Welcome to #Hack Addis Registration</i></h3>
+   <br><br> <br><br>
+    <form (ngSubmit)="registerUser()"  #add="ngForm" class="m-t" role="form" action="#">
+      <div class="form-group col-lg-12">
+        <input type="text" class="form-control" #fn="ngModel" placeholder="Full Name"  name="full_name"   [(ngModel)]="new_register_attendant.full_name" ngModel required>
+        <div *ngIf="!fn.valid && fn.dirty">
+          Full bName Required!
+        </div>
+      </div>
+      <div class="form-group col-lg-12">
+        <input type="text" class="form-control" #pn="ngModel" placeholder="Phone Number"  name="phone_number"   [(ngModel)]="new_register_attendant.phone" ngModel required>
+        <div *ngIf="!pn.valid && pn.dirty">
+          Phone Number Required!
+        </div>
+      </div>
+      <div class="form-group col-lg-12">
+        <input type="email" class="form-control" #em="ngModel" placeholder="Email"  name="email" [(ngModel)]="new_register_attendant.email"  pattern="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?">
+        <div *ngIf="!em.valid && em.dirty">
+          Email Required!
+        </div>
+      </div>
+      <div class="form-group col-lg-12">
+          <select class="form-control" id="sex" [(ngModel)]="new_register_attendant.sex" name="sex">
+            <option   value="M">Male</option>
+            <option   value="F">Female</option>
+          </select>
+      </div>
+      <div class="form-group col-lg-12">
+        <input type="text" class="form-control" #pr="ngModel" placeholder="Profession"  name="profession"   [(ngModel)]="new_register_attendant.profession" ngModel required>
+        <div *ngIf="!pr.valid && pr.dirty">
+          Profession Required!
+        </div>
+      </div>
+      <div class="form-group col-lg-12">
+        <input type="text" class="form-control" #int="ngModel" placeholder="Interest"  name="interest"   [(ngModel)]="new_register_attendant.interest" ngModel required>
+        <div *ngIf="!int.valid && int.dirty">
+          Interest Required!
+        </div>
+      </div>
+      <div class="form-group col-lg-12">
+      <button type="submit"   class="btn btn-danger block full-width m-b " [disabled]="!add.valid" >Register</button>
+        <a> <small>You can Also Register in SMS</small></a>
+      </div>
+
+    </form>
+    <p class="m-t"> <small>GREAT COMMISSION MINISTRY ETHIOPIA &copy; 2018</small> </p>
+  </div>
+</div>
+
+<!--<div class="my-container">-->
+<!--<ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '0px' }"></ngx-loading>-->
+<!--</div>-->
